@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Elige el Modo de Recolección"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/modeSelectorGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbContinuous"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Continuo 24/7" />
+
+            <RadioButton
+                android:id="@+id/rbScheduled"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Programado" />
+        </RadioGroup>
+
+
+        <LinearLayout
+            android:id="@+id/continuousControls"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <Button
+                android:id="@+id/continuousButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Iniciar Recolección Continua" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/scheduledControls"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+            <Button
+                android:id="@+id/scheduleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Activar Horario" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:text="Días de Recolección"
+                android:textStyle="bold" />
+             <GridLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:columnCount="2">
+                <CheckBox android:id="@+id/cbSunday" android:text="Domingo" />
+                <CheckBox android:id="@+id/cbMonday" android:text="Lunes" />
+                <CheckBox android:id="@+id/cbTuesday" android:text="Martes" />
+                <CheckBox android:id="@+id/cbWednesday" android:text="Miércoles" />
+                <CheckBox android:id="@+id/cbThursday" android:text="Jueves" />
+                <CheckBox android:id="@+id/cbFriday" android:text="Viernes" />
+                <CheckBox android:id="@+id/cbSaturday" android:text="Sábado" />
+            </GridLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:text="Horario de Recolección"
+                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <Button android:id="@+id/startTimeButton" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="08:00" android:textSize="24sp" android:textColor="#000000" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="-" android:textSize="24sp" android:layout_marginStart="16dp" android:layout_marginEnd="16dp"/>
+                <Button android:id="@+id/endTimeButton" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="18:00" android:textSize="24sp" android:textColor="#000000" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:background="?android:attr/listDivider" />
+
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Servicio Inactivo"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+            
+        <TextView
+            android:id="@+id/ipAddressText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textAlignment="center"
+            android:text="IP Local: ..." />
+
+        <TextView
+            android:id="@+id/lastLocationText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAlignment="center"
+            android:text="Última ubicación: ..." />
+
+        <TextView
+            android:id="@+id/dataCountText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAlignment="center"
+            android:text="Registros guardados: ..." />
+        <Button
+            android:id="@+id/showDeviceStatusButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:text="Mostrar Estado del Dispositivo" />
+
+        <TextView
+            android:id="@+id/deviceStatusText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="#F5F5F5"
+            android:padding="8dp"
+            android:text="El estado del dispositivo aparecerá aquí." />
+            <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="16dp"
+            android:background="?android:attr/listDivider" />
+
+        <Button
+            android:id="@+id/configButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Ver Token de API"/>
+
+    </LinearLayout>
+</ScrollView>
